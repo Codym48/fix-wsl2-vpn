@@ -44,8 +44,11 @@ for /f "delims=" %%i in (
     ' powershell -NonInteractive -NoProfile -Command "(Get-NetAdapter -InterfaceDescription PANGP*).ifIndex" '
 ) do set "vpn_adapter_index=%%i"
 
+rem Attempt to delete the route at 1s intervals until the route doesn't exist
 :loop
 call route delete %wsl_adapter_ip% mask %wsl_adapter_mask% 0.0.0.0 IF %vpn_adapter_index% > route-delete-result.txt 2>&1
 set /p result=<route-delete-result.txt
 timeout /t 1 > nul
 if "%result%"==" OK!" goto loop
+
+del /f route-delete-result.txt
