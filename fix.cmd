@@ -23,7 +23,11 @@ rem ...
 
 set wsl_adapter_ip=172.21.0.0
 set wsl_adapter_mask=255.255.240.0
-set vpn_adapter_index=17
+
+rem This works if there's a single network adapter whose description starts with PANGP*
+for /f "delims=" %%i in (
+    ' powershell -NonInteractive -NoProfile -Command "(Get-NetAdapter -InterfaceDescription PANGP*).ifIndex" '
+) do set "vpn_adapter_index=%%i"
 
 :loop
 call route delete %wsl_adapter_ip% mask %wsl_adapter_mask% 0.0.0.0 ^
