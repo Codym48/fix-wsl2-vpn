@@ -1,29 +1,26 @@
 rem Execute this script in an elevated command prompt to fix issues with WSL2
 rem distributions connecting to the internet through a VPN like GlobalProtect.
+rem Based on https://janovesk.com/wsl/2022/01/21/wsl2-and-vpn-routing.html
 rem
 rem Before running the script:
-rem Windows Key + Ubuntu
+rem Windows Key > Ubuntu
 rem username@computer-name:~$ ping 8.8.8.8
 rem PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
 rem _
 rem
 rem To run the script:
-rem 1. Windows Key -> File Explorer -> Open
+rem 1. Windows Key > File Explorer > Open
 rem 2. Navigate to this script
-rem 3. Right Click -> Run as administrator
+rem 3. Right Click > Run as administrator
 rem 
 rem After running the script:
-rem Windows Key + Ubuntu
+rem Windows Key > Ubuntu
 rem username@computer-name:~$ ping 8.8.8.8
 rem PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
 rem 64 bytes from 8.8.8.8: icmp_seq=1 ttl=115 time=10.7 ms
 rem 64 bytes from 8.8.8.8: icmp_seq=2 ttl=115 time=11.0 ms
 rem 64 bytes from 8.8.8.8: icmp_seq=3 ttl=115 time=10.4 ms
 rem ...
-rem
-rem Desirements
-rem - Doesn't require installing any dependencies (no python, etc.)
-rem - Completely self-contained in a single file
 
 rem Assumes a single network whose alias contains "WSL"
 for /f "delims=" %%i in (
