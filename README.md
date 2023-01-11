@@ -1,10 +1,14 @@
 WSL2 distributions on Windows hosts can't reach the internet or the intranet when connected over Palo Alto Networks GlobalProtect VPN. This is a known issue:
+- https://github.com/microsoft/WSL/issues/4277
 - https://github.com/microsoft/WSL/issues/4698
 - https://github.com/microsoft/WSL/issues/5068
+- https://github.com/microsoft/WSL/issues/5336
+- https://github.com/microsoft/WSL/issues/7159
+- https://github.com/microsoft/WSL/issues/7822
 
 The script in this repository automates implementation of the solution described in https://janovesk.com/wsl/2022/01/21/wsl2-and-vpn-routing.html
 
-Note this differs from the [official workaround](https://learn.microsoft.com/en-us/windows/wsl/troubleshooting#wsl-has-no-network-connectivity-once-connected-to-a-vpn) from Microsoft. While the official work-around requires the developer to do something on every switch between a non-VPN and a VPN connection _and vice versa_, running this script is only necessary on each (re)connection to VPN. The effects of this script should not persist or impact non-VPN connections.
+Note this differs from the [official workaround](https://learn.microsoft.com/en-us/windows/wsl/troubleshooting#wsl-has-no-network-connectivity-once-connected-to-a-vpn) from Microsoft. That change requires the developer to do something on every switch between a non-VPN and a VPN connection _and vice versa_, or take a performance hit on one side as described in @janovesk's [2nd blog post](https://janovesk.com/wsl/2022/01/24/wsl2-and-vpn-dns.html). For comparison, this script is only necessary on each (re)connection to VPN. The effects of this script should not persist or impact non-VPN connections.
 
 ## Development Goals
 - Script doesn't require installing any dependencies (no python, etc.) for ease of use
