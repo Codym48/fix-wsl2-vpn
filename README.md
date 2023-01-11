@@ -26,3 +26,28 @@ The script in this repository automates implementation of the solution described
     ```
 
 Note you'll need to run this script (just step 3) every time you reconnect over VPN.
+
+## Testing
+
+Manually tested with
+- Windows 10 Enterprise 10.0.19045 Build 19045
+- Windows PowerShell 10.0.19041.546
+- Command Prompt 10.0.19041.746
+- Palo Alto Networks GlobalProtect VPN 5.2.12-26
+- WSL versions
+  ```
+  C:\Users\Codym48\Code\fix-wsl2-vpn>wsl -l -v
+    NAME                   STATE           VERSION
+  * Ubuntu                 Running         2
+    docker-desktop-data    Stopped         2
+    docker-desktop         Stopped         2
+  
+  C:\Users\Codym48\Code\fix-wsl2-vpn>wsl --version
+  WSL version: 1.0.3.0
+  Kernel version: 5.15.79.1
+  WSLg version: 1.0.47
+  MSRDC version: 1.2.3575
+  Direct3D version: 1.606.4
+  DXCore version: 10.0.25131.1002-220531-1700.rs-onecore-base2-hyp
+  Windows version: 10.0.19045.2364
+  ```
