@@ -1,5 +1,5 @@
 rem Execute this script in an elevated command prompt to fix issues with WSL2
-rem distributions connecting to the internet through a VPN like GlobalProtect.
+rem distributions connecting to the internet through GlobalProtect VPN.
 rem Based on https://janovesk.com/wsl/2022/01/21/wsl2-and-vpn-routing.html
 rem
 rem Before running the script:

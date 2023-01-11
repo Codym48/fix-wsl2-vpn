@@ -4,9 +4,12 @@ WSL2 distributions on Windows hosts can't reach the internet or the intranet whe
 
 The script in this repository automates implementation of the solution described in https://janovesk.com/wsl/2022/01/21/wsl2-and-vpn-routing.html
 
+Note this differs from the [official workaround](https://learn.microsoft.com/en-us/windows/wsl/troubleshooting#wsl-has-no-network-connectivity-once-connected-to-a-vpn) from Microsoft. While the official work-around requires the developer to do something on every switch between a non-VPN and a VPN connection _and vice versa_, running this script is only necessary on each (re)connection to VPN. The effects of this script should not persist or impact non-VPN connections.
+
 ## Development Goals
 - Script doesn't require installing any dependencies (no python, etc.) for ease of use
-- Script is completely self-contained in a single file
+- Script is completely self-contained in a single file for ease of acquisition
+- Script is a batch script, since some corporate IT settings restrict who can run PowerShell scripts with elevated privileges
 
 ## Usage
 1. Open up your WSL2 distribution (e.g. Windows key > Ubuntu) and run the following command, which should hang. If it doesn't, you already have internet access and can skip the following steps.
@@ -30,10 +33,10 @@ Note you'll need to run this script (just step 3) every time you reconnect over 
 ## Testing
 
 Manually tested with
+- Palo Alto Networks GlobalProtect VPN 5.2.12-26
 - Windows 10 Enterprise 10.0.19045 Build 19045
 - Windows PowerShell 10.0.19041.546
 - Command Prompt 10.0.19041.746
-- Palo Alto Networks GlobalProtect VPN 5.2.12-26
 - WSL versions
   ```
   C:\Users\Codym48\Code\fix-wsl2-vpn>wsl -l -v
